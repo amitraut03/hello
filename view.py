@@ -34,7 +34,6 @@ def login_view(request):
                 return redirect('reception_portal')
     elif request.user.is_authenticated:
         return render (request,'accounts/reception_portal.html')
-
     else:
         form= AuthenticationForm()
     return render(request,'accounts/login.html',{'form':form})
@@ -43,7 +42,6 @@ def logout_view(request):
     if request.method=='POST':
         logout(request)
         return render (request,'accounts/logout.html')
-
 @login_required(login_url="login")
 def new_visitors_view(request):
     if request.method=="POST":
